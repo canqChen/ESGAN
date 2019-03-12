@@ -54,8 +54,8 @@ class ESGAN(object):
 
         self.use_deconv = args.use_deconv
         
-        self.dataA = glob('../datasets/{}/*.*'.format(self.dataset_name + '/trainA'))
-        self.dataB = glob('../datasets/{}/*.*'.format(self.dataset_name + '/trainB'))
+        self.dataA = glob('./datasets/{}/*.*'.format(self.dataset_name + '/trainA'))
+        self.dataB = glob('./datasets/{}/*.*'.format(self.dataset_name + '/trainB'))
         self.dataset_num = max(len(self.dataA), len(self.dataB))
         
         # image pool buffer, restore previously generated max_size iamges
@@ -166,17 +166,6 @@ class ESGAN(object):
                 output = adaptive_resblock(output, emotion_feats[idx], channels, scope='g_dc_ada_res%d'%(i+1))
                 idx -= 1
 
-            # for i in range(2*self.n_res-1):
-            #     if i % 2 == 0:
-            #         output = adaptive_resblock(output, emotion_feats[idx], channels, scope='g_dc_ada_res%d'%((i+2)/2))
-            #         idx -= 1
-            #     else:
-            #         output = resblock(output, channels, scope='g_dc_res%d'%(i/2+1))
-            # for i in range(self.n_res):
-            #     output = adaptive_resblock(output, emotion_feats[idx], channels, scope='g_dc_ada_res%d'%(2*i+1))
-            #     output = adaptive_resblock(output, emotion_feats[idx], channels, scope='g_dc_ada_res%d'%(2*i+2))
-            #     idx -= 1
-            # channels = channels//2
             output = tf.nn.relu(ada_instance_norm(conv2d(output, channels, 3, 1, pad=1, scope='g_dc_conv1'), emotion_feats[idx], scope='g_dc_adin'))
             idx -= 1
 
@@ -399,9 +388,6 @@ class ESGAN(object):
 
         start_time = time.time()
         for epoch in range(start_epoch, self.epoch + 1):
-            # decay learning rate
-            # lr = self.init_lr if epoch <= self.decay_epoch else self.init_lr * (self.epoch-epoch + 1)/(self.epoch-self.decay_epoch)
-            # lr = self.init_lr if epoch <= self.decay_epoch else 0.5*self.init_lr
             lr = self.init_lr
             for idx in range(start_step, steps+1):
                 # Update G network and record fake outputs
@@ -467,8 +453,8 @@ class ESGAN(object):
         self.sess.run(init_op)
         self.saver = tf.train.Saver()
         # load all the filenames of the images from the two datasets
-        dataA = glob('../datasets/{}/*.*'.format(self.dataset_name + '/testA'))
-        dataB = glob('../datasets/{}/*.*'.format(self.dataset_name + '/testB'))
+        dataA = glob('./datasets/{}/*.*'.format(self.dataset_name + '/testA'))
+        dataB = glob('./datasets/{}/*.*'.format(self.dataset_name + '/testB'))
 
         np.random.shuffle(dataA)
         np.random.shuffle(dataB)
@@ -527,8 +513,8 @@ class ESGAN(object):
         self.sess.run(init_op)
         self.saver = tf.train.Saver()
         # load all the filenames of the images from the two datasets
-        dataA = glob('../datasets/{}/*.*'.format(self.dataset_name + '/testA'))
-        dataB = glob('../datasets/{}/*.*'.format(self.dataset_name + '/testB'))
+        dataA = glob('./datasets/{}/*.*'.format(self.dataset_name + '/testA'))
+        dataB = glob('./datasets/{}/*.*'.format(self.dataset_name + '/testB'))
 
         ref_A = args.ref_A.split(',')
         ref_B = args.ref_B.split(',')
@@ -596,8 +582,8 @@ class ESGAN(object):
         self.sess.run(init_op)
         self.saver = tf.train.Saver()
         # load all the filenames of the images from the two datasets
-        dataA = glob('../datasets/{}/*.*'.format(self.dataset_name + '/sample_guide_testA'))
-        dataB = glob('../datasets/{}/*.*'.format(self.dataset_name + '/sample_guide_testB'))
+        dataA = glob('./datasets/{}/*.*'.format(self.dataset_name + '/sample_guide_testA'))
+        dataB = glob('./datasets/{}/*.*'.format(self.dataset_name + '/sample_guide_testB'))
 
         # load model
         if self.load(self.checkpoint_dir):
@@ -654,8 +640,8 @@ class ESGAN(object):
 
     def reconstruct_image(self):
         tf.global_variables_initializer().run()
-        test_A_files = glob('../datasets/{}/*.*'.format(self.dataset_name + '/testA'))
-        test_B_files = glob('../datasets/{}/*.*'.format(self.dataset_name + '/testB'))
+        test_A_files = glob('./datasets/{}/*.*'.format(self.dataset_name + '/testA'))
+        test_B_files = glob('./datasets/{}/*.*'.format(self.dataset_name + '/testB'))
         sample_files = zip(test_A_files,test_B_files)
         self.saver = tf.train.Saver()
         could_load, _ = self.load(self.checkpoint_dir)
