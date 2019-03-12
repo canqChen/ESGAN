@@ -7,3 +7,5 @@ A simple tensorflow implementation of ESGAN that can transfer image emotion
 ## Usage
 ### Train
 * bash run_train.sh
+### Test
+* run_test.sh
