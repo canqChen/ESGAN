@@ -9,5 +9,9 @@ A simple tensorflow implementation of ESGAN that can transfer image emotion
 * bash run_train.sh
 ### Test
 * run_test.sh
+## Method Overview
+(https://github.com/canqChen/ESGAN/tree/master/images/method_overview.tif)
+## Architecture
+(https://github.com/canqChen/ESGAN/tree/master/images/method_detail.tif)
 ## Code Reference
 * [CycleGAN-Tensorflow](https://github.com/taki0112/CycleGAN-Tensorflow)
