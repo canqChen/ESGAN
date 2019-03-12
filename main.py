@@ -25,8 +25,6 @@ def parse_args():
     parser.add_argument('--lambda_e', dest='lambda_e', type=float, default=5, help='weight on emotion loss term in objective')
     parser.add_argument('--lambda_recon', dest='lambda_recon', type=float, default=10, help='weight on self-reconstruction loss term in objective')
     parser.add_argument('--lambda_cc_recon', dest='lambda_cc_recon', type=float, default=10, help='weight on cross-domain reconstruction loss term in objective')
-    parser.add_argument('--use_resnet', dest='use_resnet', type=bool, default=True, help='generation network using reidule block')
-    parser.add_argument('--use_lsgan', dest='use_lsgan', type=bool, default=True, help='gan loss defined in lsgan')
     parser.add_argument('--use_deconv', dest='use_deconv', action='store_true', default=False, help='deconv use or not')
     parser.add_argument('--pool_size', dest='pool_size', type=int, default=30, help='max size of image pool, 0 means do not use image pool')
     parser.add_argument('--ngf', dest='ngf', type=int, default=64, help='# of gen filters in first conv layer')
