@@ -1,4 +1,1 @@
-# python main.py --EID=1 --visible_devices=5 --dataset_name=joy2sadness --lambda_gan=1 --lambda_c=5 --lambda_e=5 --lambda_recon=10 --batch_size=2 --n_dis=4 --n_res=4 --n_scale=1 --n_sample=2 --use_deconv=False --perceptual_flag=True --augment_flag=True --gan_augment_flag=True
-# python main.py --EID=2 --visible_devices=6 --dataset_name=joy2sadness --lambda_gan=1 --lambda_c=5 --lambda_e=5 --lambda_recon=10 --batch_size=2 --n_dis=4 --n_res=4 --n_scale=1 --n_sample=2 --use_deconv=False --perceptual_flag=True --augment_flag=True --gan_augment_flag=True
-# python main.py --EID=3 --visible_devices=7 --dataset_name=joy2sadness --lambda_gan=1 --lambda_c=1 --lambda_e=1 --lambda_recon=10 --batch_size=2 --n_dis=4 --n_res=4 --n_scale=1 --n_sample=2 --use_deconv=False --perceptual_flag=True --augment_flag=True --gan_augment_flag=True
-python main.py --EID=4 --visible_devices=1 --dataset_name=joy2sadness --lambda_gan=1 --lambda_c=5 --lambda_e=10 --lambda_recon=5 --batch_size=2 --n_dis=5 --n_res=5 --n_scale=2 --n_sample=3 --use_deconv=True --perceptual_flag=False --augment_flag=True --gan_augment_flag=True
+python main.py --visible_devices=0 --dataset_name=joy2sadness
