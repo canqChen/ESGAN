@@ -8,7 +8,7 @@ A simple tensorflow implementation of ESGAN that can transfer image emotion
 ### Train
 * bash run_train.sh
 ### Test
-* run_test.sh
+* bash run_test.sh
 ## Method Overview
 ![image](https://github.com/canqChen/ESGAN/blob/master/images/method%20overview.png)
 ## Architecture
