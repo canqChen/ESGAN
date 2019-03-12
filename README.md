@@ -16,7 +16,9 @@ A simple tensorflow implementation of ESGAN that can transfer image emotion
 ## Results
 ### Sample Examples
 ![image](https://github.com/canqChen/ESGAN/blob/master/images/joy2sadness.jpg "joy2sadness")
+***
 ![image](https://github.com/canqChen/ESGAN/blob/master/images/sadness2joy.jpg "sadness2joy")
+***
 ![image](https://github.com/canqChen/ESGAN/blob/master/images/joy2anger.jpg "joy2anger")
 ![image](https://github.com/canqChen/ESGAN/blob/master/images/anger2joy.jpg "anger2joy")
 ![image](https://github.com/canqChen/ESGAN/blob/master/images/surprise2sadness.jpg "surprise2sadness")
